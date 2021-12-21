@@ -1,0 +1,40 @@
+<div class="container">
+    <div>
+        <h2>Modifier un Film :</h2>
+    </div>
+    <form #updateForm="ngForm" (ngSubmit)="updateFilm(updateForm)">
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+            <label>ID Film</label>
+            <input type="text" [(ngModel)]="currentFilm.idFilm" name="idFilm" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Nom Film</label>
+            <input type="text" [(ngModel)]="currentFilm.nomFilm" name="nomFilm" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+            <label>Prix Ticket</label>
+            <input type="number" [(ngModel)]="currentFilm.prixTicket" name="prixTicket" class="form-control">
+        </div>
+        <div class="form-group">
+            <label>Genre du film</label><br>
+            <div class="select">
+                <select class="form-group"
+                        id="inputState"
+                        name="genre"
+                        [(ngModel)]="genres" 
+                        requires>
+
+                    <option [(ngValue)]="genre.idGen" *ngFor="let genre of genres" [(ngModel)]="currentGenre.genre.idGen">{{genre.nomGen}}</option>
+                </select>
+            </div>
+            
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Date Sortie</label>
+            <input type="date" [ngModel]="currentFilm.dateSortie| date: 'yyyy-MM-dd'"(ngModelChange)=" currentFilm.dateSortie= $event" name="dateSortie" class="form-control">
+        </div>
+        <div class="mt-2">
+            <button type="submit"  class="btn btn-success">Modifer</button>
+        </div>
+    </form>
+</div>

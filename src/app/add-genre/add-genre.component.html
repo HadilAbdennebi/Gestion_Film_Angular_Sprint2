@@ -1,0 +1,30 @@
+<div class="container">
+    <br>
+    <div>
+        <h2>Ajouter un Genre :</h2>
+    </div>
+    <form >
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID Genre</label>
+        <input type="text" [(ngModel)]="newGenre.idGen" name="idGen" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label > Genre</label>
+        <input type="text" [(ngModel)]= "newGenre.nomGen" name="nomGen" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Description Genre</label>
+        <input type="text" [(ngModel)]= "newGenre.descriptionGen" name="descriptionGen" class="form-control">
+        </div>
+
+        <br>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <button type="submit" (click) ="addGenre()" class="btn btn-success">Ajouter</button>
+        </div>
+        <div>
+            <h3>
+                {{ message }}
+            </h3>
+        </div>
+    </form>
+</div>

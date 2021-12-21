@@ -1,0 +1,48 @@
+<div class="container">
+    <br>
+    <div>
+        <h2>Ajouter un Film :</h2>
+    </div>
+    <form #addForm="ngForm" (ngSubmit)="addFilm(addForm)">
+        <div hidden class="col-sm-2 col-md-2 col-lg-2">
+        <label >ID Film</label>
+        <input type="text" [(ngModel)]="newFilm.idFilm" name="idFilm" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4" >
+        <label >Nom Film</label>
+        <input type="text" [(ngModel)]= "newFilm.nomFilm" name="nomFilm" class="form-control">
+        </div>
+        <div class="col-sm-2 col-md-2 col-lg-2">
+        <label >Prix Film</label>
+        <input type="number" [(ngModel)]= "newFilm.prixTicket" name="prixTicket" class="form-control">
+        </div>
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <label >Date Sortie</label>
+        <input type="date" [(ngModel)]= "newFilm.dateSortie"  name="dateSortie" class="form-control">
+        </div>
+             
+         <div class="col-sm-4 col-md-4 col-lg-4">
+            <label>Genre du film</label><br>
+            <div class="select">
+                <select class="form-group"
+                        id="inputState"
+                        name="genre"
+                        [(ngModel)]="genres" requires>
+
+                    <option [(ngValue)]="genre.idGen" *ngFor="let genre of genres" >{{genre.nomGen}}</option>
+                </select>
+            </div>
+            
+        </div>
+
+      
+        <div class="col-sm-4 col-md-4 col-lg-4">
+        <button type="submit" class="btn btn-success">Ajouter</button>
+        </div>
+        <div>
+            <h3>
+                {{ message }}
+            </h3>
+        </div>
+    </form>
+</div>

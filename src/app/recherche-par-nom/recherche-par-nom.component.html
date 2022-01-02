@@ -1,0 +1,53 @@
+<div class="container">
+<!--
+<div class="col-sm-4 col-md-4 col-lg-4 mb-4">
+        <label>Genres </label>
+        <select class="form-control form-control-lg" id="idGen" name="idGen"
+        [(ngModel)]="idGen" (change)="onChange()">
+        <option *ngFor="let genre of genres" value="{{genre.idGen}}">
+        {{genre.nomGen}}
+        </option>
+        </select>
+        </div>
+
+-->
+    
+
+        <div class="col-sm-4 col-md-4 col-lg-4 mb-4" style="width: 50%;">
+       
+            <input (ngModelChange)="searchFilm(key.value)" #key="ngModel" ngModel type="text"
+            class="form-control" placeholder="Nom du Film ..." aria-label="Username"
+            aria-describedby="basic-addon1">
+            
+           
+              
+        </div>
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <table class="table table-striped">
+                <tr>
+                    <th>Id</th>
+                    <th>Nom</th>
+                    <th>Prix Ticket</th>
+
+                    <th>genre</th>
+
+                    <th>Date Sortie</th>
+                </tr>
+                <tbody *ngFor="let film of films">
+                    <tr>
+                        <td>{{film.idFilm}}</td>
+                        <td>{{film.nomFilm}}</td>
+                        <td>{{film.prixTicket}}</td>
+                        <td>{{film.genre.nomGen}}</td>
+
+                        <td>{{film.dateSortie | date:'dd/MM/yyyy'}}</td>
+                        <td><a class="btn btn-danger" (click)="supprimerFilm(film)">Supprimer</a></td>
+                        <td><a class="btn btn-success" [routerLink]="['/updateFilm',film.idFilm]">Modifier</a></td>
+
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
